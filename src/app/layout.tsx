@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-
+import Image from "next/image";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,10 +27,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <nav className="bg-gray-100 border-b mb-8">
-          <div className="container mx-auto px-4 py-3 flex gap-6">
-            <Link href="/" className="font-semibold text-gray-700 hover:text-blue-500">Home</Link>
-            <Link href="/listings" className="font-semibold text-gray-700 hover:text-blue-500">Listings</Link>
-            <Link href="/contact" className="font-semibold text-gray-700 hover:text-blue-500">Contact</Link>
+          <div className="container mx-auto px-4 py-3 flex items-center relative">
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="Ly Chhing Motorbike Rental Shop Logo" width={40} height={40} />
+              <span className="text-xl font-bold text-gray-800">Ly Chhing Motorbike Rental Shop</span>
+            </div>
+            <div className="navbar-links-right">
+              <Link href="/" className="font-semibold text-gray-700 hover:text-blue-500">Home</Link>
+              <Link href="/contact" className="font-semibold text-gray-700 hover:text-blue-500">Contact Us</Link>
+              <Link href="/faq" className="font-semibold text-gray-700 hover:text-blue-500">FAQ</Link>
+              <Link href="/about-siem-reap" className="font-semibold text-gray-700 hover:text-blue-500">About Siem Reap</Link>
+            </div>
           </div>
         </nav>
         {children}
